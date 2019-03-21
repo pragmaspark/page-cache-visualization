@@ -15,7 +15,7 @@ def main():
     files = add(file_path, file_name)
     files = add(files,     file_time)
     
-    call(f"cat /sys/kernel/debug/page_ownwer > {files[0]}", shell = True)
+    call(f"sudo cat /sys/kernel/debug/page_ownwer > {files[0]}", shell = True)
     call(f"grep -v ^PFT {files[0]} > {files[1]}", shell = True)
     call(f"touch {files[2]}", shell = True)
     call(f"page_owner_sort {files[1]} {files[2]}", shell = True)
